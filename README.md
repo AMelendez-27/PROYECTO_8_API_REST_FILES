@@ -1,21 +1,25 @@
-# PROYECTO 8: API REST Files & Cloudinary
-## _thePower - Desarrollo Full Stack_
+# PROJECT 8: API REST Files
+## _thePower - Full Stack Development_
 
-## Descripción
-Este es un proyecto backend desarrollado con Node.js y Express, que implementa una API RESTful para la gestión de directores y películas. Incluye almacenamiento de imágenes en Cloudinary, subida de archivos con Multer, y conexión a una base de datos MongoDB Atlas usando Mongoose. El objetivo es practicar y demostrar conocimientos en manejo de ficheros, relaciones entre colecciones, middlewares, y servicios externos como Cloudinary.
+## Description
+This is a backend project developed with Node.js and Express, implementing a RESTful API for managing directors and movies. It includes image storage in Cloudinary, file uploading with Multer, and a MongoDB Atlas database connection using Mongoose. The goal is to practice and demonstrate knowledge in file handling, relationships between collections, middlewares, and external services like Cloudinary.
 
-## Requisitos del Proyecto
-- Servidor con Express
-- Conexión a MongoDB Atlas usando Mongoose
-- Modelos: Director y Film (película)
-- Subida de imágenes a Cloudinary (con Multer y multer-storage-cloudinary)
-- Seeds para poblar la base de datos
-- CRUD completo para directores y películas
-- Relación entre películas y directores (cada película tiene un director)
-- README con documentación y endpoints
-- Ejemplo de reutilización del storage de Cloudinary cambiando la carpeta (comentado en el código)
+---
 
-## Tecnologías
+## Project Requirements
+- Server with express  
+- Connection to a Mongo Atlas database using mongoose  
+- Creation of two models, both with a field that allows us to store a file  
+- A seed to upload data to one of the collections  
+- A relationship between collections  
+- Full CRUD for all collections  
+- README with project documentation, listing the endpoints and what each one does  
+- File uploads via Cloudinary to both collections  
+- File deletion in Cloudinary when the entry is removed from the DB  
+- Attempt to reuse Cloudinary storage by changing the folder (may be commented out)  
+---
+
+## Tech
 - Node.js
 - Express
 - Mongoose
@@ -25,11 +29,12 @@ Este es un proyecto backend desarrollado con Node.js y Express, que implementa u
 - Cloudinary
 - multer-storage-cloudinary
 - Nodemon
+---
 
-## Instalación
-Este proyecto requiere [Node.js](https://nodejs.org/) v20.10+ para funcionar.
+## Installation
+This project requires [Node.js](https://nodejs.org/) v20.10+ to run.
 
-Instala las dependencias y ejecuta el servidor:
+Install the dependencies and run the server:
 
 ```sh
 cd PROYECTO_8_API_REST_FILES
@@ -37,38 +42,40 @@ npm install
 npm run dev
 ```
 
-Crea un archivo `.env` en la raíz con tus credenciales de MongoDB y Cloudinary:
+Create a `.env` file in the root with your MongoDB and Cloudinary credentials:
 ```
-DB_URL=tu_url_de_mongodb
-CLOUDINARY_CLOUD_NAME=tu_cloud_name
-CLOUDINARY_API_KEY=tu_api_key
-CLOUDINARY_API_SECRET=tu_api_secret
+DB_URL=your_mongodb_url
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 ```
+---
 
 ## Endpoints
 ### _DIRECTORS_
-| Método | Ruta                      | Descripción                  | Body/Params Ejemplo                                  |
-|--------|---------------------------|------------------------------|------------------------------------------------------|
-| POST   | `/api/v1/directors`       | Crear director (con imagen)  | name, age, img (file)                                |
-| GET    | `/api/v1/directors`       | Listar todos los directores  | -                                                    |
-| GET    | `/api/v1/directors/:id`   | Obtener director por ID      | :id                                                  |
-| PUT    | `/api/v1/directors/:id`   | Actualizar director          | :id + name, age, img (file)                          |
-| DELETE | `/api/v1/directors/:id`   | Eliminar director            | :id                                                  |
+| Method | Route                    | Description                  | Body/Params Example                                 |
+|--------|--------------------------|------------------------------|-----------------------------------------------------|
+| POST   | `/api/v1/directors`      | Create director (with image) | name, age, img (file)                               |
+| GET    | `/api/v1/directors`      | List all directors           | -                                                   |
+| GET    | `/api/v1/directors/:id`  | Get director by ID           | :id                                                 |
+| PUT    | `/api/v1/directors/:id`  | Update director              | :id + name, age, img (file)                         |
+| DELETE | `/api/v1/directors/:id`  | Delete director              | :id                                                 |
 
 ### _FILMS_
-| Método | Ruta                  | Descripción                        | Body/Params Ejemplo                                  |
-|--------|-----------------------|------------------------------------|------------------------------------------------------|
-| POST   | `/api/v1/films`       | Crear película (con imagen)        | name, genere, duration, director (id), img (file)    |
-| GET    | `/api/v1/films`       | Listar todas las películas         | -                                                    |
-| GET    | `/api/v1/films/:id`   | Obtener película por ID            | :id                                                  |
-| PUT    | `/api/v1/films/:id`   | Actualizar película                | :id + name, genere, duration, director, img (file)   |
-| DELETE | `/api/v1/films/:id`   | Eliminar película                  | :id                                                  |
+| Method | Route                 | Description                        | Body/Params Example                                 |
+|--------|-----------------------|------------------------------------|-----------------------------------------------------|
+| POST   | `/api/v1/films`       | Create film (with image)           | name, genere, duration, director (id), img (file)   |
+| GET    | `/api/v1/films`       | List all films                     | -                                                   |
+| GET    | `/api/v1/films/:id`   | Get film by ID                     | :id                                                 |
+| PUT    | `/api/v1/films/:id`   | Update film                        | :id + name, genere, duration, director, img (file)  |
+| DELETE | `/api/v1/films/:id`   | Delete film                        | :id                                                 |
+---
 
+## Notes
+- To upload images, use `multipart/form-data` and the field `img` in your POST/PUT requests.
+- The project includes a commented example on how to reuse Cloudinary storage by changing the destination folder.
+- The seeds to populate the database are located in `/src/utils/seeds/`.
 
-## Notas
-- Para subir imágenes, usa `multipart/form-data` y el campo `img` en tus peticiones POST/PUT.
-- El proyecto incluye un ejemplo comentado de cómo reutilizar el storage de Cloudinary cambiando la carpeta de destino.
-- Los seeds para poblar la base de datos están en `/src/utils/seeds/`.
-
+---
 ---
 ---
