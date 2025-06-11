@@ -2,7 +2,7 @@
 ## _thePower - Full Stack Development_
 
 ## Description
-This is a backend project developed with Node.js and Express, implementing a RESTful API for managing directors and movies. It includes image storage in Cloudinary, file uploading with Multer, and a MongoDB Atlas database connection using Mongoose. The goal is to practice and demonstrate knowledge in file handling, relationships between collections, middlewares, and external services like Cloudinary.
+This is one of the latest projects I completed to obtain the backend developer certification. The goal was to apply everything I had learned about uploading, transforming, and deleting files in a cloud environment — in this case, Cloudinary. For the database, I used MongoDB, as in previous projects.
 
 ---
 
